@@ -5,7 +5,6 @@ export const LoginTemplate = (props) =>{
     return(
         <>
             <HeaderContainer 
-                displayFlg = {false} 
                 headText = {"家計簿記録アプリ"}    
             />
             <LoginContainer />

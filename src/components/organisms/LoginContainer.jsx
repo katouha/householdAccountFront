@@ -42,8 +42,10 @@ export const LoginContainer = (props) =>{
                 //api成功
                 if(apiResult === "0"){
                     let userInfo = res.data.result.userInfo.userName;
+                    //何らかの形でログイン情報を保持する(いったんはブラウザストレージ)
                     localStorage.setItem("loginUser",userInfo);
-                    navigate("/management/createBlog");
+                    //家計簿登録画面遷移
+                    navigate("/householdRegist");
                     
                 }else{
                     let messageList = [];
@@ -96,7 +98,12 @@ export const LoginContainer = (props) =>{
         navigate("/userIssuePass");
     }
 
-    //以下画面コンポーネント分割対応
+    //以下コンポーネントエレメント作成
+    //---------------------------------------------------------------------------
+    /**
+     * エラーメッセージエリアのエレメント生成
+     * @returns エラーメッセージエリアのエレメント
+     */
     const errorMessageArea = () =>{
         return <div className={"errorMessageArea"}>
                     {errorMessage.length > 0 ? 
@@ -111,6 +118,10 @@ export const LoginContainer = (props) =>{
                 </div>
     }
 
+    /**
+     * ユーザID入力フォームのエレメント生成
+     * @returns ユーザID入力フォームのエレメント
+     */
     const userIdForm = () => {
         return <div className={"formContent"}>
                     <InputForm
@@ -128,6 +139,10 @@ export const LoginContainer = (props) =>{
                 </div>
     }
 
+    /**
+     * パスワード入力フォームのエレメント生成
+     * @returns パスワード入力フォームのエレメント
+     */
     const passwordForm = () => {
         return <div className={"formContent"}>
                     <InputForm
@@ -145,6 +160,10 @@ export const LoginContainer = (props) =>{
                 </div>
     }
 
+    /**
+     * ログインボタンエリアのエレメント生成
+     * @returns ログインボタンエリアのエレメント
+     */
     const loginBtnArea = () => {
         return <div>
                     <Button
@@ -155,9 +174,28 @@ export const LoginContainer = (props) =>{
                 </div>
     }
 
+    /**
+     * ユーザ登録とパスワード初期化リンクエリアエレメント生成
+     * @returns ユーザ登録とパスワード初期化リンクエリアエレメント
+     */
     const registChangePassArea = () => {
-        return ;
+        return <div>
+                    <Link 
+                        value={"新規ユーザ登録"}
+                        onClick={onClickUserRegist}
+                        href={""}
+                        className={"loginLink"}
+                    />
+                    <Link 
+                        value={"パスワードをお忘れの方"}
+                        onClick={onClickPasswordIssue}
+                        href={""}
+                        className={"loginLink"}
+                    />
+                </div>
     }
+    //コンポーネントエレメント作成ここまで
+    //---------------------------------------------------------------------------
 
     return(
         <div className={"loginContent"}>
@@ -176,18 +214,7 @@ export const LoginContainer = (props) =>{
                 <div className={"registChangePassArea"}>
                     {/* ユーザ登録＆パスワード初期化リンクエリア */}
                     {registChangePassArea()}
-                    <Link 
-                        value={"新規ユーザ登録"}
-                        onClick={onClickUserRegist}
-                        href={""}
-                        className={"loginLink"}
-                    />
-                    <Link 
-                        value={"パスワードをお忘れの方"}
-                        onClick={onClickPasswordIssue}
-                        href={""}
-                        className={"loginLink"}
-                    />
+                    
                 </div>
             </div>
         </div>
