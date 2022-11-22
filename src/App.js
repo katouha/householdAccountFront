@@ -15,15 +15,16 @@ import UserInfoChange from "./components/pages/UserInfoChange";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/household_account">
+      <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="user/regist" element={<UserRegist />} />
-        <Route path="user/forgetPassword" element={<ForgetPassword />} />
-        <Route path="/user/userInfoChange" element={<UserInfoChange />} />
-        <Route path="/householdRegist" element={<HouseholdRegist />} />
-        <Route path="/householdSearch" element={<HouseholdSearch />} />
-        <Route path="/householdGraph" element={<HouseholdGraph />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/household_account/login" element={<Login />} />
+        <Route path="/household_account/user/regist" element={<UserRegist />} />
+        <Route path="/household_account/user/forgetPassword" element={<ForgetPassword />} />
+        <Route path="/household_account/user/userInfoChange" element={<UserInfoChange />} />
+        <Route path="/household_account/householdRegist" element={<HouseholdRegist />} />
+        <Route path="/household_account/householdSearch" element={<HouseholdSearch />} />
+        <Route path="/household_account/householdGraph" element={<HouseholdGraph />} />
       </Routes>
       </BrowserRouter>
     </div>

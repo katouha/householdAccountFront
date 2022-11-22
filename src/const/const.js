@@ -15,10 +15,10 @@ export const SIDE_LOGOUT = "ログアウト";
 export const SIDE_LOGIN = "ログアウト";
 
 //画面遷移先
-export const PASS_LOGIN = "/login";
-export const PASS_USER_REGIST = "/user/regist";
-export const PASS_USER_FORGET_PASSWORD = "/user/forgetPassword";
-export const PASS_USER_INFO_CHANGE = "/user/userInfoChange";
-export const PASS_HOUSEHOLD_REGIST = "/householdRegist";
-export const PASS_HOUSEHOLD_SEARCH = "/householdSearch";
-export const PASS_HOUSEHOLD_GRAPH = "/householdGraph";
+export const PASS_LOGIN = "/household_account/login";
+export const PASS_USER_REGIST = "/household_account/user/regist";
+export const PASS_USER_FORGET_PASSWORD = "/household_account/user/forgetPassword";
+export const PASS_USER_INFO_CHANGE = "/household_account/user/userInfoChange";
+export const PASS_HOUSEHOLD_REGIST = "/household_account/householdRegist";
+export const PASS_HOUSEHOLD_SEARCH = "/household_account/householdSearch";
+export const PASS_HOUSEHOLD_GRAPH = "/household_account/householdGraph";
