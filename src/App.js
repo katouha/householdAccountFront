@@ -9,15 +9,17 @@ import {
 import HouseholdRegist from "./components/pages/HouseholdRegist";
 import UserRegist from "./components/pages/UserRegist";
 import ForgetPassword from "./components/pages/ForgetPassword";
+import HouseholdSearch from "./components/pages/HouseholdSearch";
 function App() {
   return (
     <div className="App">
       <BrowserRouter basename="/household_account">
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/householdRegist" element={<HouseholdRegist />} />
         <Route path="user/regist" element={<UserRegist />} />
         <Route path="user/forgetPassword" element={<ForgetPassword />} />
+        <Route path="/householdRegist" element={<HouseholdRegist />} />
+        <Route path="/householdSearch" element={<HouseholdSearch />} />
       </Routes>
       </BrowserRouter>
     </div>

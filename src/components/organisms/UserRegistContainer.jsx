@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import './../../resources/css/householdRegist.css';
+import './../../resources/css/template.css';
 import { TemplateContainer } from "./TemplateContainer";
 import { FiLogIn } from "react-icons/fi";
 export const UserRegistContainer = (props) =>{

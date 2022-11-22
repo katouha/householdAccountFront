@@ -19,3 +19,8 @@
     margin: 0 auto;
     text-align: left;
 }
+.wigetIcon{
+    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+}
