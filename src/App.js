@@ -7,6 +7,8 @@ import {
   Route,
 } from 'react-router-dom';
 import HouseholdRegist from "./components/pages/HouseholdRegist";
+import UserRegist from "./components/pages/UserRegist";
+import ForgetPassword from "./components/pages/ForgetPassword";
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/householdRegist" element={<HouseholdRegist />} />
+        <Route path="user/regist" element={<UserRegist />} />
+        <Route path="user/forgetPassword" element={<ForgetPassword />} />
       </Routes>
       </BrowserRouter>
     </div>

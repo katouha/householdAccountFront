@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { TemplateContainer } from "./TemplateContainer";
-import { AiOutlineExport,AiOutlineBarChart,AiOutlineIdcard,AiOutlineSearch} from "react-icons/ai";
+import { AiOutlineBarChart,AiOutlineIdcard,AiOutlineSearch} from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
 import './../../resources/css/householdRegist.css';
 export const HouseholdRegistContainer = (props) =>{
 
@@ -45,7 +46,7 @@ export const HouseholdRegistContainer = (props) =>{
         return <AiOutlineIdcard className="wigetIcon"/>
     }
     const logoutIcon = () =>{
-        return <AiOutlineExport className="wigetIcon"/>
+        return <FiLogOut className="wigetIcon"/>
     }
     const wigetList = [
         {labelName:"家計簿閲覧",method:householdSearch,icon:searchIcon()},

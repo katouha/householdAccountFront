@@ -88,14 +88,14 @@ export const LoginContainer = (props) =>{
      * 新規ユーザー登録画面遷移処理
      */
     const onClickUserRegist = () => {
-        navigate("/userRegist");
+        navigate("/user/regist");
     }
 
     /**
      * パスワード再設定画面遷移処理
      */
     const onClickPasswordIssue = () => {
-        navigate("/userIssuePass");
+        navigate("/user/forgetPassword");
     }
 
     //以下コンポーネントエレメント作成
