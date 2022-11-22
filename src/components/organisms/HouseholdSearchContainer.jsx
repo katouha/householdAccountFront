@@ -12,7 +12,7 @@ export const HouseholdSearchContainer = (props) =>{
     //サイドウィジェッドデータ作成部
     //-----------------------------------------------------------
     /**
-     * 家計簿検索画面遷移
+     * 家計簿登録画面遷移
      */
     const householdRegist = () => {
         navigate("/householdRegist");
@@ -21,7 +21,7 @@ export const HouseholdSearchContainer = (props) =>{
      * 家計簿グラフ閲覧画面遷移
      */
      const householdGraph = () => {
-        navigate("/graph");
+        navigate("/householdGraph");
     }
     /**
      * ユーザ情報変更画面画面遷移
@@ -70,7 +70,7 @@ export const HouseholdSearchContainer = (props) =>{
 
     return(
         <TemplateContainer
-            title={"家計簿検索"} 
+            title={"家計簿閲覧"} 
         　  body={body()}
             wigetList={wigetList}
         />

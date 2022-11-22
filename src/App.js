@@ -10,6 +10,7 @@ import HouseholdRegist from "./components/pages/HouseholdRegist";
 import UserRegist from "./components/pages/UserRegist";
 import ForgetPassword from "./components/pages/ForgetPassword";
 import HouseholdSearch from "./components/pages/HouseholdSearch";
+import HouseholdGraph from "./components/pages/HouseholdGraph";
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
         <Route path="user/forgetPassword" element={<ForgetPassword />} />
         <Route path="/householdRegist" element={<HouseholdRegist />} />
         <Route path="/householdSearch" element={<HouseholdSearch />} />
+        <Route path="/householdGraph" element={<HouseholdGraph />} />
       </Routes>
       </BrowserRouter>
     </div>
