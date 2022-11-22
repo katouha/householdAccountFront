@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import  {LOGIN_API} from './../../const/const.js';
 import { Link } from "../atoms/Link";
+import { PASS_HOUSEHOLD_REGIST,PASS_USER_REGIST,PASS_USER_FORGET_PASSWORD } from "./../../const/const.js";
 export const LoginContainer = (props) =>{
 
     const [id,setId] = useState("");
@@ -45,7 +46,7 @@ export const LoginContainer = (props) =>{
                     //何らかの形でログイン情報を保持する(いったんはブラウザストレージ)
                     localStorage.setItem("loginUser",userInfo);
                     //家計簿登録画面遷移
-                    navigate("/householdRegist");
+                    navigate(PASS_HOUSEHOLD_REGIST);
                     
                 }else{
                     let messageList = [];
@@ -88,14 +89,14 @@ export const LoginContainer = (props) =>{
      * 新規ユーザー登録画面遷移処理
      */
     const onClickUserRegist = () => {
-        navigate("/user/regist");
+        navigate(PASS_USER_REGIST);
     }
 
     /**
      * パスワード再設定画面遷移処理
      */
     const onClickPasswordIssue = () => {
-        navigate("/user/forgetPassword");
+        navigate(PASS_USER_FORGET_PASSWORD);
     }
 
     //以下コンポーネントエレメント作成

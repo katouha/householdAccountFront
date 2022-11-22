@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './../../resources/css/template.css';
 import { TemplateContainer } from "./TemplateContainer";
 import { FiLogIn } from "react-icons/fi";
+import { PASS_LOGIN, SIDE_LOGIN, SIDE_USER_REGIST } from "../../const/const";
 export const UserRegistContainer = (props) =>{
 
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const UserRegistContainer = (props) =>{
      * ログイン画面遷移
      */
      const loginUser = () => {
-        navigate("/login");
+        navigate(PASS_LOGIN);
     }
 
     //以下アイコンコンポーネント返却
@@ -22,7 +23,7 @@ export const UserRegistContainer = (props) =>{
         return <FiLogIn className="wigetIcon"/>
     }
     const wigetList = [
-        {labelName:"ログイン",method:loginUser,icon:loginIcon()}
+        {labelName:SIDE_LOGIN,method:loginUser,icon:loginIcon()}
     ]
     //サイドウィジェッドデータ作成ここまで
     //-----------------------------------------------------------
@@ -37,7 +38,7 @@ export const UserRegistContainer = (props) =>{
     
     return(
         <TemplateContainer
-            title={"ユーザ登録"} 
+            title={SIDE_USER_REGIST} 
         　  body={body()}
             wigetList={wigetList}
         />

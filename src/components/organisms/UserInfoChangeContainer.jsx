@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { TemplateContainer } from "./TemplateContainer";
-import { AiOutlineSearch,AiOutlineIdcard} from "react-icons/ai";
+import { AiOutlineSearch,AiOutlineBarChart} from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { BsPencilSquare } from "react-icons/bs";
-import { SIDE_HOUSEHOLD_REGIST,SIDE_HOUSEHOLD_SEARCH,SIDE_HOUSEHOLD_GRAPH,SIDE_USER_INFO_CHANGE,SIDE_LOGOUT, PASS_HOUSEHOLD_REGIST, PASS_HOUSEHOLD_SEARCH, PASS_USER_INFO_CHANGE, PASS_LOGIN} from "../../const/const";
+import { SIDE_HOUSEHOLD_REGIST,SIDE_HOUSEHOLD_SEARCH,SIDE_HOUSEHOLD_GRAPH,SIDE_USER_INFO_CHANGE,SIDE_LOGOUT, PASS_HOUSEHOLD_REGIST, PASS_HOUSEHOLD_SEARCH, PASS_HOUSEHOLD_GRAPH, PASS_LOGIN} from "../../const/const";
 import './../../resources/css/template.css';
-export const HouseholdGraphContainer = (props) =>{
+export const UserInfoChangeContainer = (props) =>{
 
     const navigate = useNavigate();
 
@@ -25,10 +25,10 @@ export const HouseholdGraphContainer = (props) =>{
         navigate(PASS_HOUSEHOLD_SEARCH);
     }
     /**
-     * ユーザ情報変更画面画面遷移
+     * 家計簿グラフ閲覧画面遷移
      */
-     const userUpdate = () => {
-        navigate(PASS_USER_INFO_CHANGE);
+     const householdGraph = () => {
+        navigate(PASS_HOUSEHOLD_GRAPH);
     }
     /**
      * ログアウト処理
@@ -44,8 +44,8 @@ export const HouseholdGraphContainer = (props) =>{
     const searchIcon = () =>{
         return <AiOutlineSearch className="wigetIcon"/>
     }
-    const updateUserIcon = () =>{
-        return <AiOutlineIdcard className="wigetIcon"/>
+    const graphIcon = () =>{
+        return <AiOutlineBarChart className="wigetIcon"/>
     }
     const logoutIcon = () =>{
         return <FiLogOut className="wigetIcon"/>
@@ -53,7 +53,7 @@ export const HouseholdGraphContainer = (props) =>{
     const wigetList = [
         {labelName:SIDE_HOUSEHOLD_REGIST,method:householdRegist,icon:registIcon()},
         {labelName:SIDE_HOUSEHOLD_SEARCH,method:householdSearch,icon:searchIcon()},
-        {labelName:SIDE_USER_INFO_CHANGE,method:userUpdate,icon:updateUserIcon()},
+        {labelName:SIDE_HOUSEHOLD_GRAPH,method:householdGraph,icon:graphIcon()},
         {labelName:SIDE_LOGOUT,method:logoutUser,icon:logoutIcon()}
     ]
     //サイドウィジェッドデータ作成ここまで
@@ -71,7 +71,7 @@ export const HouseholdGraphContainer = (props) =>{
 
     return(
         <TemplateContainer
-            title={SIDE_HOUSEHOLD_GRAPH} 
+            title={SIDE_USER_INFO_CHANGE} 
         　  body={body()}
             wigetList={wigetList}
         />

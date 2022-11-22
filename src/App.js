@@ -11,6 +11,7 @@ import UserRegist from "./components/pages/UserRegist";
 import ForgetPassword from "./components/pages/ForgetPassword";
 import HouseholdSearch from "./components/pages/HouseholdSearch";
 import HouseholdGraph from "./components/pages/HouseholdGraph";
+import UserInfoChange from "./components/pages/UserInfoChange";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="user/regist" element={<UserRegist />} />
         <Route path="user/forgetPassword" element={<ForgetPassword />} />
+        <Route path="/user/userInfoChange" element={<UserInfoChange />} />
         <Route path="/householdRegist" element={<HouseholdRegist />} />
         <Route path="/householdSearch" element={<HouseholdSearch />} />
         <Route path="/householdGraph" element={<HouseholdGraph />} />
