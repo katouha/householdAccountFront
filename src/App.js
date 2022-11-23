@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import { RecoilRoot } from 'recoil'
 import HouseholdRegist from "./components/pages/HouseholdRegist";
 import UserRegist from "./components/pages/UserRegist";
 import ForgetPassword from "./components/pages/ForgetPassword";
@@ -15,18 +16,20 @@ import UserInfoChange from "./components/pages/UserInfoChange";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/household_account/login" element={<Login />} />
-        <Route path="/household_account/user/regist" element={<UserRegist />} />
-        <Route path="/household_account/user/forgetPassword" element={<ForgetPassword />} />
-        <Route path="/household_account/user/userInfoChange" element={<UserInfoChange />} />
-        <Route path="/household_account/householdRegist" element={<HouseholdRegist />} />
-        <Route path="/household_account/householdSearch" element={<HouseholdSearch />} />
-        <Route path="/household_account/householdGraph" element={<HouseholdGraph />} />
-      </Routes>
-      </BrowserRouter>
+      <RecoilRoot>
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/household_account/login" element={<Login />} />
+          <Route path="/household_account/user/regist" element={<UserRegist />} />
+          <Route path="/household_account/user/forgetPassword" element={<ForgetPassword />} />
+          <Route path="/household_account/user/userInfoChange" element={<UserInfoChange />} />
+          <Route path="/household_account/householdRegist" element={<HouseholdRegist />} />
+          <Route path="/household_account/householdSearch" element={<HouseholdSearch />} />
+          <Route path="/household_account/householdGraph" element={<HouseholdGraph />} />
+        </Routes>
+        </BrowserRouter>
+      </RecoilRoot>
     </div>
   );
 }

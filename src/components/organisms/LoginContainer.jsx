@@ -7,11 +7,15 @@ import { useNavigate } from 'react-router-dom';
 import  {API_RESULT_OK, LOGIN_API} from './../../const/const.js';
 import { Link } from "../atoms/Link";
 import { PASS_HOUSEHOLD_REGIST,PASS_USER_REGIST,PASS_USER_FORGET_PASSWORD } from "./../../const/const.js";
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { userState } from '../../store/login'
 export const LoginContainer = (props) =>{
 
     const [id,setId] = useState("");
     const [password,setPassword] = useState("");
     const [errorMessage,setErrorMessage] = useState([]);
+    //　読み書き両方
+    const [userInfo, setUserInfo] = useRecoilState(userState);
     const navigate = useNavigate();
 
     /**
@@ -43,7 +47,7 @@ export const LoginContainer = (props) =>{
                 //api成功
                 if(apiResult === API_RESULT_OK){
                     //何らかの形でログイン情報を保持する(いったんはブラウザストレージ)
-                    localStorage.setItem("loginUser",userInfoConvert(res.data.result));
+                    setUserInfo(userInfoConvert(res.data.result));
                     //家計簿登録画面遷移
                     navigate(PASS_HOUSEHOLD_REGIST);
                     

@@ -5,9 +5,12 @@ import { AiOutlineBarChart,AiOutlineIdcard,AiOutlineSearch} from "react-icons/ai
 import { FiLogOut } from "react-icons/fi";
 import { SIDE_HOUSEHOLD_REGIST,SIDE_HOUSEHOLD_SEARCH,SIDE_HOUSEHOLD_GRAPH,SIDE_USER_INFO_CHANGE,SIDE_LOGOUT, PASS_HOUSEHOLD_SEARCH, PASS_HOUSEHOLD_GRAPH, PASS_USER_INFO_CHANGE, PASS_LOGIN} from "../../const/const";
 import './../../resources/css/template.css';
+import { useRecoilValue } from 'recoil'
+import { userState } from '../../store/login'
 export const HouseholdRegistContainer = (props) =>{
 
     const navigate = useNavigate();
+    const userInfo = useRecoilValue(userState);
 
     //サイドウィジェッドデータ作成部
     //-----------------------------------------------------------
