@@ -4,7 +4,7 @@ import { InputForm } from "../molecules/InputForm";
 import './../../resources/css/login.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import  {LOGIN_API} from './../../const/const.js';
+import  {API_RESULT_OK, LOGIN_API} from './../../const/const.js';
 import { Link } from "../atoms/Link";
 import { PASS_HOUSEHOLD_REGIST,PASS_USER_REGIST,PASS_USER_FORGET_PASSWORD } from "./../../const/const.js";
 export const LoginContainer = (props) =>{
@@ -37,14 +37,13 @@ export const LoginContainer = (props) =>{
         let validationCheckFlg = validation();
         if(!validationCheckFlg){
             //loginAPIを呼ぶ
-            await axios.post(LOGIN_API,{loginId:id,password:password})
+            await axios.post(LOGIN_API,{userId:id,password:password})
             .then(res => {
                 let apiResult = res.data.result.returnCd;
                 //api成功
-                if(apiResult === "0"){
-                    let userInfo = res.data.result.userInfo.userName;
+                if(apiResult === API_RESULT_OK){
                     //何らかの形でログイン情報を保持する(いったんはブラウザストレージ)
-                    localStorage.setItem("loginUser",userInfo);
+                    localStorage.setItem("loginUser",userInfoConvert(res.data.result));
                     //家計簿登録画面遷移
                     navigate(PASS_HOUSEHOLD_REGIST);
                     
@@ -55,6 +54,17 @@ export const LoginContainer = (props) =>{
                 }
             })
         }
+    }
+
+    const userInfoConvert = (apiResData) => {
+        let userObj = {
+            userId:apiResData.userId,
+            userName:apiResData.userName,
+            roleId:apiResData.roleId,
+            password:apiResData.password,
+            mailAddress:apiResData.mailAddress
+        }
+        return userObj;
     }
 
     /**

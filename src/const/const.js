@@ -3,6 +3,9 @@ export const REGIST_USER_API = "http://localhost:8080/householdAccount/user/regi
 export const PASSWORD_CHANGE_API = "http://localhost:8080/householdAccount/user/updateUser";
 export const LOGIN_API = "http://localhost:8080/householdAccount/user/login";
 
+//APIリターンコード
+export const API_RESULT_OK = "0";
+
 
 //サイドウィジェッドラベル名
 export const SIDE_HOUSEHOLD_REGIST = "家計簿登録";
