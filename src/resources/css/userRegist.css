@@ -29,6 +29,12 @@
     padding: 10px;
     text-align: center;
 }
+.userRegistTd3{
+    border: 1px solid #1b9ae469;
+    width: 450px;
+    padding: 10px;
+    text-align: left;
+}
 .userRegistInputForm{
     width: 90%;
     height: 30px;

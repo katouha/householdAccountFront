@@ -9,7 +9,6 @@ import { TitleGroup } from "../atoms/TitleGroup";
 import { DynamicTable } from "../molecules/DynamicTable";
 import { Button } from "../atoms/Button";
 import { DualRadioBtn } from "../molecules/DualRadioBtn"; 
-import { ModalTemplateTwoBtn } from "../molecules/ModalTemplateTwoBtn";
 import { ErrorMessage } from "../molecules/ErrorMessage";
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { userRegistState } from '../../store/userRegist';
@@ -26,7 +25,6 @@ export const UserRegistContainer = (props) =>{
     const [mailAddressConf,setMailAddressConf] = useState("");
     const [gender,setGender] = useState("");
     const [errorMessage,setErrorMessage] = useState([]);
-    const [modalFlg,setModalFlg] = useState(false);
     const [userRegist, setUserRegist] = useRecoilState(userRegistState);
 
 
@@ -85,14 +83,14 @@ export const UserRegistContainer = (props) =>{
      * バリデーションチェックかからなければ画面遷移
      * @returns なし
      */
-    const onClickUserRegist = () => {
+    const onClickNextConfirm = () => {
         if(validation()){
             return;
         }
         //storeに情報保持
         let userRegistInfo = {
             userName:userName,
-            loginId:loginId,
+            userId:loginId,
             password:passwordConf,
             mailAddress:mailAddressConf,
             gender:gender,
@@ -204,17 +202,13 @@ export const UserRegistContainer = (props) =>{
      */
     const body = () =>{
         return <div>
-                    <ModalTemplateTwoBtn
-                        openFlg={modalFlg}
-                        modalStyle="userRegistModal"
-                    />
                     <div className="userRegistContentArea">
                         <ErrorMessage
                             errorMessage={errorMessage}
                         />
                         <TitleGroup
                             className="userRegistGroupTitle"
-                            titleName={"ユーザ情報"}
+                            titleName={"ユーザ情報入力"}
                         />
                         <DynamicTable
                             tableStyle="userRegistTableStyle"
@@ -224,7 +218,7 @@ export const UserRegistContainer = (props) =>{
                         />
                         <div className="registBtnArea">
                             <Button
-                                onClick={onClickUserRegist}
+                                onClick={onClickNextConfirm}
                                 className="registBtn"
                                 value="登録"
                             />

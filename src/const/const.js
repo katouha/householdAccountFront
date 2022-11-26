@@ -26,3 +26,22 @@ export const PASS_USER_INFO_CHANGE = "/household_account/user/userInfoChange";
 export const PASS_HOUSEHOLD_REGIST = "/household_account/householdRegist";
 export const PASS_HOUSEHOLD_SEARCH = "/household_account/householdSearch";
 export const PASS_HOUSEHOLD_GRAPH = "/household_account/householdGraph";
+
+//モーダルタイトル
+export const MODAL_TITLE_REGIST = "登録確認";
+export const MODAL_TITLE_REGIST_SUCCESS = "登録完了";
+export const MODAL_TITLE_REGIST_ERROR = "登録失敗";
+
+
+//モーダルボディ
+export const MODAL_BODY_REGIST = "登録しますか？";
+export const MODAL_BODY_REGIST_SUCCESS = "登録完了いたしました。";
+export const MODAL_BODY_NEXT_LOGIN = "ログイン画面へ戻ります。";
+export const MODAL_BODY_REGIST_ERROR = "登録失敗いたしました。";
+export const MODAL_BODY_REGIST_ERROR_INPUT = "入力からやり直してください。";
+
+//モーダルボタン名
+export const MODAL_BTN_NAME_CANCEL = "キャンセル";
+export const MODAL_BTN_NAME_OK = "OK";
+export const MODAL_BTN_NAME_LOGIN = "ログインへ戻る";
+export const MODAL_BTN_NAME_USER_INPUT = "ユーザ情報入力へ戻る";

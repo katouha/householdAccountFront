@@ -13,6 +13,7 @@ import ForgetPassword from "./components/pages/ForgetPassword";
 import HouseholdSearch from "./components/pages/HouseholdSearch";
 import HouseholdGraph from "./components/pages/HouseholdGraph";
 import UserInfoChange from "./components/pages/UserInfoChange";
+import UserRegistConfirm from "./components/pages/UserRegistConfirm";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/household_account/login" element={<Login />} />
           <Route path="/household_account/user/regist" element={<UserRegist />} />
+          <Route path="/household_account/user/registConf" element={<UserRegistConfirm />} />
           <Route path="/household_account/user/forgetPassword" element={<ForgetPassword />} />
           <Route path="/household_account/user/userInfoChange" element={<UserInfoChange />} />
           <Route path="/household_account/householdRegist" element={<HouseholdRegist />} />

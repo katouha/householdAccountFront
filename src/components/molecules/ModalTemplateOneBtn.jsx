@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { Button } from "../atoms/Button";
 import { AiOutlineClose} from "react-icons/ai";
 import './../../resources/css/modal.css';
-export const ModalTemplateTwoBtn = (props) =>{
+export const ModalTemplateOneBtn = (props) =>{
     return(
         <div className={props.formAreaClass}>
             <Modal
@@ -25,13 +25,8 @@ export const ModalTemplateTwoBtn = (props) =>{
                 <div className={"modalBtnArea " + props.modalBtnArea}>
                     <Button
                         onClick={props.onClick1}
-                        className="modalBtn1"
+                        className="modalBtnOne"
                         value={props.btnTitle1}
-                    />
-                    <Button
-                        onClick={props.onClick2}
-                        className="modalBtn2"
-                        value={props.btnTitle2}
                     />
                 </div>
             </Modal>
