@@ -1,0 +1,78 @@
+.userRegistContentArea{
+
+}
+.userRegistGroupTitle{
+    width: 120px;
+    height: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #1b9ae469;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #000000bf;
+    font-weight: bold;
+}
+.userRegistTableStyle{
+    border-collapse: collapse;
+}
+.userRegistTd1{
+    border: 1px solid #1b9ae469;
+    width: 160px;
+    padding: 10px;
+    background: #c2c0c829;
+}
+.userRegistTd2{
+    border: 1px solid #1b9ae469;
+    width: 450px;
+    padding: 10px;
+    text-align: center;
+}
+.userRegistInputForm{
+    width: 90%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 2px 5px;
+}
+.registBtnArea{
+    width: 650px;
+    text-align: center;
+    margin-top: 30px;
+}
+.registBtn{
+    width: 150px;
+    height: 40px;
+    color: white;
+    background: black;
+    letter-spacing: 5px;
+    
+}
+.radioArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userRegistRadioForm{
+    width: 15px;
+    height: 15px;
+    margin: 0px;
+    margin-right: 5px;
+}
+.radioStyle{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.radioSizeStyle{
+    display: flex;
+    width: 90%;
+}
+.userRegistModal{
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}

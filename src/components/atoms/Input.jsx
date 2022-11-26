@@ -9,6 +9,8 @@ export const Input = (props) =>{
         placeholder={props.placeholder}
         onChange={props.onChange}
         id={props.id}
+        name={props.name}
+        key={props.key}
      />
     )
 }

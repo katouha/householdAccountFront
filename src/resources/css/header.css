@@ -77,6 +77,10 @@
     align-items: center;
     cursor: pointer;
 }
+.wigetRootStyle{
+    transition: 1s;
+    transform: translate(-100%, 0);
+}
 /* レスポンシブ対応 */
 @media screen and (max-width: 959px) {
     .headerTitle{

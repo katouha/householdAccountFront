@@ -9,6 +9,7 @@ import { Link } from "../atoms/Link";
 import { PASS_HOUSEHOLD_REGIST,PASS_USER_REGIST,PASS_USER_FORGET_PASSWORD } from "./../../const/const.js";
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { userState } from '../../store/login'
+import { ErrorMessage } from "../molecules/ErrorMessage";
 export const LoginContainer = (props) =>{
 
     const [id,setId] = useState("");
@@ -115,23 +116,6 @@ export const LoginContainer = (props) =>{
 
     //以下コンポーネントエレメント作成
     //---------------------------------------------------------------------------
-    /**
-     * エラーメッセージエリアのエレメント生成
-     * @returns エラーメッセージエリアのエレメント
-     */
-    const errorMessageArea = () =>{
-        return <div className={"errorMessageArea"}>
-                    {errorMessage.length > 0 ? 
-                        errorMessage.map((message)=>{
-                            return(
-                                <div className={"errorMessage"}>{message}</div>
-                            );
-                        })
-                        :
-                        null
-                    }
-                </div>
-    }
 
     /**
      * ユーザID入力フォームのエレメント生成
@@ -218,7 +202,9 @@ export const LoginContainer = (props) =>{
                 <div className={"loginTitle"}>ユーザ認証</div>
                 <div className={"loginContainer"}>
                     {/* エラーメッセージ表示エリア */}
-                    {errorMessageArea()}
+                    <ErrorMessage
+                        errorMessage={errorMessage}
+                    />
                     {/* ユーザ入力フォーム */}
                     {userIdForm()}
                     {/* パスワード入力フォーム */}

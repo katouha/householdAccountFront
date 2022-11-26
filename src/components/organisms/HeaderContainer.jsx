@@ -41,7 +41,10 @@ export const HeaderContainer = (props) =>{
                     open={wigetFlg}
                     onSetOpen={openWiget}
                     className="sideWiget"
-                />
+                    rootClassName={wigetFlg ? "" :"wigetRootStyle"}
+                >
+                    <></>
+                </Sidebar>
     }
     //サイドウィジェッド開いた際のコンポーネント
     const wigetContents = () => {
