@@ -10,6 +10,7 @@ export const ModalTemplateOneBtn = (props) =>{
                 isOpen={props.openFlg}
                 style={props.modalStyle}
                 onRequestClose={props.onRequestClose}
+                ariaHideApp={false}
             >
                 <div className={"modalHeader " + props.modalHeaderStyle}>
                     <p className="modalTitle">{props.modalTitle}</p>

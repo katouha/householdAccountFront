@@ -49,7 +49,7 @@ export const UserRegistConfirmContainer = (props) =>{
 
 
     /**
-     * ユーザ登録処理
+     * 登録確認モーダル開く
      * @returns なし
      */
     const onClickUserRegist = () => {
@@ -64,7 +64,8 @@ export const UserRegistConfirmContainer = (props) =>{
     }
 
     /**
-     * 登録確認モーダル閉じる
+     * 登録エラーの場合はユーザ情報入力画面
+     * 登録成功の場合はログイン画面遷移
      */
      const successModalClose = () => {
         //state切り替え
