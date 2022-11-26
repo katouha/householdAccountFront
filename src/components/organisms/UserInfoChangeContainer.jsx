@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { TemplateContainer } from "./TemplateContainer";
 import { AiOutlineSearch,AiOutlineBarChart} from "react-icons/ai";
@@ -6,9 +6,19 @@ import { FiLogOut } from "react-icons/fi";
 import { BsPencilSquare } from "react-icons/bs";
 import { SIDE_HOUSEHOLD_REGIST,SIDE_HOUSEHOLD_SEARCH,SIDE_HOUSEHOLD_GRAPH,SIDE_USER_INFO_CHANGE,SIDE_LOGOUT, PASS_HOUSEHOLD_REGIST, PASS_HOUSEHOLD_SEARCH, PASS_HOUSEHOLD_GRAPH, PASS_LOGIN} from "../../const/const";
 import './../../resources/css/template.css';
+import { useRecoilState} from 'recoil';
+import { userState } from '../../store/login';
 export const UserInfoChangeContainer = (props) =>{
 
     const navigate = useNavigate();
+    const [userInfo, setUserInfo] = useRecoilState(userState);
+
+    useEffect(() => {
+        //ログイン情報がない場合はログイン画面へ戻す(URL直打ち対応)
+        if(!userInfo === undefined || !Object.keys(userInfo).length){
+            navigate(PASS_LOGIN);
+        }
+    },[])
 
     //サイドウィジェッドデータ作成部
     //-----------------------------------------------------------

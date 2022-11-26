@@ -21,9 +21,8 @@ export const UserRegistConfirmContainer = (props) =>{
 
     const navigate = useNavigate();
 
-    const [errorMessage,setErrorMessage] = useState([]);
     const [modalFlg,setModalFlg] = useState(false);
-    const [successModalFlg,setSuccessModalFlg] = useState(false);
+    const [resultModalFlg,setResultModalFlg] = useState(false);
     const [registSuccessFlg,setRegistSuccessFlg] = useState(false);
     const [userRegist, setUserRegist] = useRecoilState(userRegistState);
 
@@ -69,7 +68,7 @@ export const UserRegistConfirmContainer = (props) =>{
      */
      const successModalClose = () => {
         //state切り替え
-        setSuccessModalFlg(false);
+        setResultModalFlg(false);
         //storeの値をクリア
         setUserRegist({});
         //ログイン画面に遷移
@@ -91,7 +90,8 @@ export const UserRegistConfirmContainer = (props) =>{
              userId:userRegist.userId,
              password:userRegist.password,
              mailAddress:userRegist.mailAddress,
-             genderType:userRegist.gender
+             genderType:userRegist.gender,
+             roleId:"1",
          }
         //ユーザ登録APIを呼び出す
         await axios.post(REGIST_USER_API,userRegistReqObj)
@@ -100,18 +100,12 @@ export const UserRegistConfirmContainer = (props) =>{
             //api成功
             if(apiResult === API_RESULT_OK){
                 //成功の場合 確認モーダルを閉じて成功モーダル表示
-                setModalFlg(false);
-                setSuccessModalFlg(true);
                 setRegistSuccessFlg(true);
-                
             }else{
                 setRegistSuccessFlg(false);
-                let messageList = [];
-                messageList.push(MODAL_BODY_REGIST_ERROR);
-                messageList.push(res.data.result.errorMessage);
-                messageList.push(MODAL_BODY_REGIST_ERROR_INPUT);
-                setErrorMessage(messageList);
             }
+            setModalFlg(false);
+            setResultModalFlg(true);
         })
     }
 
@@ -128,6 +122,7 @@ export const UserRegistConfirmContainer = (props) =>{
     //モーダルボディ表示文言リスト
     const confModalBody = [MODAL_BODY_REGIST];
     const registSuccessModalBody = [MODAL_BODY_REGIST_SUCCESS,MODAL_BODY_NEXT_LOGIN];
+    const registErrorModalBody = [MODAL_BODY_REGIST_ERROR,MODAL_BODY_REGIST_ERROR_INPUT];
 
     /**
      * TemplateContainer.jsxのボディ部に入れ込むエレメント生成する
@@ -135,7 +130,7 @@ export const UserRegistConfirmContainer = (props) =>{
      */
     const body = () =>{
         return <div>
-                    {!registSuccessFlg ?
+                    {modalFlg && !resultModalFlg ?
                         <ModalTemplateTwoBtn
                             openFlg={modalFlg}
                             modalStyle="userRegistModal"
@@ -149,19 +144,17 @@ export const UserRegistConfirmContainer = (props) =>{
                         />
                     :
                         <ModalTemplateOneBtn
-                            openFlg={successModalFlg}
+                            openFlg={resultModalFlg}
                             modalStyle="userRegistModal"
                             onRequestClose={successModalClose}
                             modalTitle={registSuccessFlg ? MODAL_TITLE_REGIST_SUCCESS : MODAL_TITLE_REGIST_ERROR}
-                            modalBody={registSuccessFlg ? registSuccessModalBody : errorMessage}
+                            modalBody={registSuccessFlg ? registSuccessModalBody : registErrorModalBody}
                             btnTitle1={registSuccessFlg ? MODAL_BTN_NAME_LOGIN : MODAL_BTN_NAME_USER_INPUT}
+                            modalBodyStyle={registSuccessFlg ? null : "errorStyle"}
                             onClick1 = {successModalClose}
                     />
                     }
                     <div className="userRegistContentArea">
-                        <ErrorMessage
-                            errorMessage={errorMessage}
-                        />
                         <TitleGroup
                             className="userRegistGroupTitle"
                             titleName={"ユーザ情報"}

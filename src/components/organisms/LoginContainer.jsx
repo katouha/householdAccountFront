@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import  {API_RESULT_OK, LOGIN_API} from './../../const/const.js';
 import { Link } from "../atoms/Link";
 import { PASS_HOUSEHOLD_REGIST,PASS_USER_REGIST,PASS_USER_FORGET_PASSWORD } from "./../../const/const.js";
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { userState } from '../../store/login'
+import { useRecoilState} from 'recoil';
+import { userState } from '../../store/login';
+import { userRegistState } from '../../store/userRegist';
 import { ErrorMessage } from "../molecules/ErrorMessage";
+import { useEffect } from "react";
 export const LoginContainer = (props) =>{
 
     const [id,setId] = useState("");
@@ -17,7 +19,13 @@ export const LoginContainer = (props) =>{
     const [errorMessage,setErrorMessage] = useState([]);
     //　読み書き両方
     const [userInfo, setUserInfo] = useRecoilState(userState);
+    const [userRegist, setUserRegist] = useRecoilState(userRegistState);
     const navigate = useNavigate();
+
+    useEffect(() =>{
+        setUserInfo({});
+        setUserRegist({});
+    },[])
 
     /**
      * 入力値をstateにセット
@@ -67,7 +75,8 @@ export const LoginContainer = (props) =>{
             userName:apiResData.userName,
             roleId:apiResData.roleId,
             password:apiResData.password,
-            mailAddress:apiResData.mailAddress
+            mailAddress:apiResData.mailAddress,
+            genderType:apiResData.genderType,
         }
         return userObj;
     }
