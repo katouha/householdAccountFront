@@ -4,14 +4,17 @@ import { TemplateContainer } from "./TemplateContainer";
 import { AiOutlineSearch,AiOutlineBarChart} from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { BsPencilSquare } from "react-icons/bs";
-import { SIDE_HOUSEHOLD_REGIST,SIDE_HOUSEHOLD_SEARCH,SIDE_HOUSEHOLD_GRAPH,SIDE_USER_INFO_CHANGE,SIDE_LOGOUT, PASS_HOUSEHOLD_REGIST, PASS_HOUSEHOLD_SEARCH, PASS_HOUSEHOLD_GRAPH, PASS_LOGIN} from "../../const/const";
+import { SIDE_HOUSEHOLD_REGIST,SIDE_HOUSEHOLD_SEARCH,SIDE_HOUSEHOLD_GRAPH,SIDE_USER_INFO_CHANGE,SIDE_LOGOUT, PASS_HOUSEHOLD_REGIST, PASS_HOUSEHOLD_SEARCH, PASS_HOUSEHOLD_GRAPH, PASS_LOGIN, TAB_HEAD_USER_CHANGE, TAB_HEAD_PASSWORD_CHANGE} from "../../const/const";
 import './../../resources/css/template.css';
 import { useRecoilState} from 'recoil';
 import { userState } from '../../store/login';
+import { DynamicTabs } from "../molecules/DynamicTabs";
+import { useState } from "react";
 export const UserInfoChangeContainer = (props) =>{
 
     const navigate = useNavigate();
     const [userInfo, setUserInfo] = useRecoilState(userState);
+    const [tabState, setTabState] = useState("1");
 
     useEffect(() => {
         //ログイン情報がない場合はログイン画面へ戻す(URL直打ち対応)
@@ -69,13 +72,39 @@ export const UserInfoChangeContainer = (props) =>{
     //サイドウィジェッドデータ作成ここまで
     //-----------------------------------------------------------
 
+    //タブデータ作成部
+    //-----------------------------------------------------------
+    const tabBodyUserChange = () => {
+        return <div>ユーザ変更ボディ</div>
+    }
+    const tabBodyPasswordChange = () => {
+        return <div>パスワード変更ボディ</div>
+    }
+    const tabStateSetOne = () => {
+        setTabState("1");
+    }
+    const tabStateSetTwo = () => {
+        setTabState("2");
+    }
+    const tabHeadData = [{title:TAB_HEAD_USER_CHANGE,method:tabStateSetOne},{title:TAB_HEAD_PASSWORD_CHANGE,method:tabStateSetTwo}];
+    const tabBodyData = [{idx:"1",elem:tabBodyUserChange()},{idx:"2",elem:tabBodyPasswordChange()}];
+
+    
+    //タブデータ作成ここまで
+    //-----------------------------------------------------------
 
     /**
      * TemplateContainer.jsxのボディ部に入れ込むエレメント生成する
      * @returns テンプレート内に挿入するボディエレメント
      */
     const body = () =>{
-        return <div>ここにテンプレートのボディに入れる内容を入れ込んでください</div>
+        return  <div>
+                    <DynamicTabs
+                        tabHeadData={tabHeadData}
+                        tabBodyData={tabBodyData}
+                        headState={tabState}
+                    />    
+                </div>
     }
     
 

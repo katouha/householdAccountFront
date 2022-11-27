@@ -56,3 +56,8 @@ export const MODAL_BTN_NAME_OK = "OK";
 export const MODAL_BTN_NAME_LOGIN = "ログインへ戻る";
 export const MODAL_BTN_NAME_USER_INPUT = "ユーザ情報入力へ戻る";
 export const MODAL_BTN_NAME_CLOSE = "閉じる";
+
+
+//タブヘッダー名
+export const TAB_HEAD_PASSWORD_CHANGE = "パスワード変更";
+export const TAB_HEAD_USER_CHANGE = "ユーザ情報変更";

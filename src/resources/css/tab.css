@@ -1,0 +1,22 @@
+.tabHeadArea{
+    display: flex;
+    padding-top: 25px;
+}
+.selectTab{
+    width: 400px;
+    text-align: center;
+    border-bottom: 5px solid cornflowerblue;
+    cursor: pointer;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.notSelectTab{
+    width: 400px;
+    text-align: center;
+    border-bottom: 1px solid rgb(184, 198, 223);
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+.tabBodyArea{
+    padding-top: 50px;
+}
