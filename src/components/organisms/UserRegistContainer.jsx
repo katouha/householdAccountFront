@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './../../resources/css/template.css';
 import './../../resources/css/userRegist.css'
 import { TemplateContainer } from "./TemplateContainer";
-import { FiLogIn } from "react-icons/fi";
-import { PASS_LOGIN, PASS_USER_REGIST_CONF, SIDE_LOGIN, SIDE_USER_REGIST } from "../../const/const";
+import { FiLogOut } from "react-icons/fi";
+import { PASS_LOGIN, PASS_USER_REGIST_CONF, SIDE_LOGIN, SIDE_RETURN_LOGIN, SIDE_USER_REGIST } from "../../const/const";
 import { TitleGroup } from "../atoms/TitleGroup";
 import { DynamicTable } from "../molecules/DynamicTable";
 import { Button } from "../atoms/Button";
@@ -40,10 +40,10 @@ export const UserRegistContainer = (props) =>{
 
     //以下アイコンコンポーネント返却
     const loginIcon = () =>{
-        return <FiLogIn className="wigetIcon"/>
+        return <FiLogOut className="wigetIcon"/>
     }
     const wigetList = [
-        {labelName:SIDE_LOGIN,method:loginUser,icon:loginIcon()}
+        {labelName:SIDE_RETURN_LOGIN,method:loginUser,icon:loginIcon()}
     ]
     //サイドウィジェッドデータ作成ここまで
     //-----------------------------------------------------------

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './../../resources/css/householdRegist.css';
 import { TemplateContainer } from "./TemplateContainer";
-import { FiLogIn } from "react-icons/fi";
-import { API_RESULT_OK, MODAL_BODY_REISSUE, MODAL_BODY_REISSUE_ERROR, MODAL_BODY_REISSUE_ERROR_SUPPORT, MODAL_BODY_REISSUE_SUCCESS, MODAL_BODY_REISSUE_SUCCESS_SUPPORT, MODAL_BTN_NAME_CANCEL, MODAL_BTN_NAME_CLOSE, MODAL_BTN_NAME_LOGIN, MODAL_BTN_NAME_OK, MODAL_TITLE_REISSUE, MODAL_TITLE_REISSUE_ERROR, MODAL_TITLE_REISSUE_SUCCESS, PASS_LOGIN, REISSUE_PASSWORD_API, SIDE_FORGET_PASSOWRD, SIDE_LOGIN } from "../../const/const";
+import { FiLogOut } from "react-icons/fi";
+import { API_RESULT_OK, MODAL_BODY_REISSUE, MODAL_BODY_REISSUE_ERROR, MODAL_BODY_REISSUE_ERROR_SUPPORT, MODAL_BODY_REISSUE_SUCCESS, MODAL_BODY_REISSUE_SUCCESS_SUPPORT, MODAL_BTN_NAME_CANCEL, MODAL_BTN_NAME_CLOSE, MODAL_BTN_NAME_LOGIN, MODAL_BTN_NAME_OK, MODAL_TITLE_REISSUE, MODAL_TITLE_REISSUE_ERROR, MODAL_TITLE_REISSUE_SUCCESS, PASS_LOGIN, REISSUE_PASSWORD_API, SIDE_FORGET_PASSOWRD, SIDE_LOGIN, SIDE_RETURN_LOGIN } from "../../const/const";
 import { ErrorMessage } from "../molecules/ErrorMessage";
 import { TitleGroup } from "../atoms/TitleGroup";
 import { DynamicTable } from "../molecules/DynamicTable";
@@ -45,10 +45,10 @@ export const ForgetPasswordContainer = (props) =>{
 
     //以下アイコンコンポーネント返却
     const loginIcon = () =>{
-        return <FiLogIn className="wigetIcon"/>
+        return <FiLogOut className="wigetIcon"/>
     }
     const wigetList = [
-        {labelName:SIDE_LOGIN,method:loginUser,icon:loginIcon()}
+        {labelName:SIDE_RETURN_LOGIN,method:loginUser,icon:loginIcon()}
     ]
     //サイドウィジェッドデータ作成ここまで
     //-----------------------------------------------------------
@@ -101,6 +101,7 @@ export const ForgetPasswordContainer = (props) =>{
      * 確認モーダルOK押下時
      */
     const reissueApiCall = async() => {
+        props.openLoading(true);
         //パスワード再発行APIを呼び出す
         await axios.post(REISSUE_PASSWORD_API,{userId:loginId})
         .then(res => {
@@ -114,6 +115,7 @@ export const ForgetPasswordContainer = (props) =>{
             }
             setModalFlg(false);
             setResultModalFlg(true);
+            props.openLoading(false);
         })
     }
 

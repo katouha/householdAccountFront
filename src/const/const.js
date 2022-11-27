@@ -17,6 +17,7 @@ export const SIDE_FORGET_PASSOWRD = "パスワード再発行";
 export const SIDE_USER_REGIST = "ユーザ登録";
 export const SIDE_LOGOUT = "ログアウト";
 export const SIDE_LOGIN = "ログアウト";
+export const SIDE_RETURN_LOGIN = "ログイン画面へ";
 
 //画面遷移先
 export const PASS_LOGIN = "/household_account/login";
