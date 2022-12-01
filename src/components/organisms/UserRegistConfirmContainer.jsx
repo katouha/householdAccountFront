@@ -4,7 +4,7 @@ import './../../resources/css/template.css';
 import './../../resources/css/userRegist.css'
 import { TemplateContainer } from "./TemplateContainer";
 import { FiLogOut } from "react-icons/fi";
-import { API_RESULT_OK, MODAL_BODY_NEXT_LOGIN, MODAL_BODY_REGIST, MODAL_BODY_REGIST_ERROR, MODAL_BODY_REGIST_ERROR_INPUT, MODAL_BODY_REGIST_SUCCESS, MODAL_BTN_NAME_CANCEL, MODAL_BTN_NAME_LOGIN, MODAL_BTN_NAME_OK, MODAL_BTN_NAME_USER_INPUT, MODAL_TITLE_REGIST, MODAL_TITLE_REGIST_ERROR, MODAL_TITLE_REGIST_SUCCESS, MODAL_TITLE_USER_REGIST_CONF, PASS_LOGIN, PASS_USER_REGIST, PASS_USER_REGIST_CONF, REGIST_USER_API, SIDE_LOGIN, SIDE_RETURN_LOGIN, SIDE_USER_REGIST } from "../../const/const";
+import { API_RESULT_OK, MODAL_BODY_NEXT_LOGIN, MODAL_BODY_REGIST, MODAL_BODY_REGIST_ERROR, MODAL_BODY_REGIST_ERROR_INPUT, MODAL_BODY_REGIST_SUCCESS, MODAL_BTN_NAME_CANCEL, MODAL_BTN_NAME_LOGIN, MODAL_BTN_NAME_OK, MODAL_BTN_NAME_USER_INPUT, MODAL_TITLE_REGIST, MODAL_TITLE_REGIST_ERROR, MODAL_TITLE_REGIST_SUCCESS, MODAL_TITLE_USER_REGIST_CONF, PASS_LOGIN, PASS_USER_REGIST, PASS_USER_REGIST_CONF, REGIST_USER_API, SIDE_LOGIN, SIDE_RETURN_LOGIN, SIDE_USER_REGIST, SIDE_USER_REGIST_CONF } from "../../const/const";
 import { TitleGroup } from "../atoms/TitleGroup";
 import { DynamicTable } from "../molecules/DynamicTable";
 import { Button } from "../atoms/Button";
@@ -179,7 +179,7 @@ export const UserRegistConfirmContainer = (props) =>{
     
     return(
         <TemplateContainer
-            title={SIDE_USER_REGIST} 
+            title={SIDE_USER_REGIST_CONF} 
         　  body={body()}
             wigetList={wigetList}
         />

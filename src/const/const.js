@@ -15,6 +15,7 @@ export const SIDE_HOUSEHOLD_GRAPH = "家計簿グラフ";
 export const SIDE_USER_INFO_CHANGE = "ユーザ情報変更";
 export const SIDE_FORGET_PASSOWRD = "パスワード再発行";
 export const SIDE_USER_REGIST = "ユーザ登録";
+export const SIDE_USER_REGIST_CONF = "ユーザ登録入力内容確認";
 export const SIDE_LOGOUT = "ログアウト";
 export const SIDE_LOGIN = "ログアウト";
 export const SIDE_RETURN_LOGIN = "ログイン画面へ";

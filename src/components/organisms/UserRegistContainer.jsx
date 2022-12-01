@@ -219,8 +219,8 @@ export const UserRegistContainer = (props) =>{
                         <div className="registBtnArea">
                             <Button
                                 onClick={onClickNextConfirm}
-                                className="registBtn"
-                                value="登録"
+                                className="registBtn letterTwo"
+                                value="確認画面へ"
                             />
                         </div>
                     </div>

@@ -85,3 +85,6 @@
 .errorStyle{
     color:red
 }
+.letterTwo{
+    letter-spacing: 2px;
+}
